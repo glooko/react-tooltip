@@ -274,7 +274,7 @@ const calculateOffset = (offset) => {
 const getParent = (currentTarget) => {
   let currentParent = currentTarget
   while (currentParent) {
-    if (window.getComputedStyle(currentParent).getPropertyValue('transform') !== 'none') break
+    if (window.getComputedStyle(currentParent).getPropertyValue('transform') !== 'none' && window.getComputedStyle(currentParent).getPropertyValue('transform') !== '') break;
     currentParent = currentParent.parentElement
   }
 
