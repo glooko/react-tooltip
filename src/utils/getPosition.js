@@ -270,26 +270,13 @@ const calculateOffset = (offset) => {
   return {extraOffset_X, extraOffset_Y}
 }
 
-// Decide if element was transformed or not
-const isElementTransformed = (element) => {
-  const computedStyles = window.getComputedStyle(element)
-  for (var prop in computedStyles) {
-    if (prop === 'transform') {
-      if (computedStyles['transform'] === 'none') {
-        return false
-      }
-      return true
-    }
-  }
-  return false
-}
-
 // Get the offset of the parent elements
 const getParent = (currentTarget) => {
   let currentParent = currentTarget
-
   while (currentParent) {
-    if (isElementTransformed(currentParent)) break
+    if (window.getComputedStyle(currentParent).getPropertyValue('transform') !== 'none'
+    && window.getComputedStyle(currentParent).getPropertyValue('transform') !== ''
+    && window.getComputedStyle(currentParent).getPropertyValue('transform') !== null) break;
     currentParent = currentParent.parentElement
   }
 
