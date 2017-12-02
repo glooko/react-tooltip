@@ -277,7 +277,7 @@ const getParent = (currentTarget) => {
     if (window.getComputedStyle(currentParent).getPropertyValue('transform') !== 'none' &&
         window.getComputedStyle(currentParent).getPropertyValue('transform') !== '' &&
         window.getComputedStyle(currentParent).getPropertyValue('transform') !== null) {
-      break;
+      break
     }
     currentParent = currentParent.parentElement
   }

@@ -2488,7 +2488,9 @@ var calculateOffset = function calculateOffset(offset) {
 var getParent = function getParent(currentTarget) {
   var currentParent = currentTarget;
   while (currentParent) {
-    if (window.getComputedStyle(currentParent).getPropertyValue('transform') !== 'none') break;
+    if (window.getComputedStyle(currentParent).getPropertyValue('transform') !== 'none' && window.getComputedStyle(currentParent).getPropertyValue('transform') !== '' && window.getComputedStyle(currentParent).getPropertyValue('transform') !== null) {
+      break;
+    }
     currentParent = currentParent.parentElement;
   }
 
